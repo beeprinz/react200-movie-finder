@@ -1,5 +1,6 @@
 const defaultState = {
-    movieSearchResults: []
+    movieSearchResults: [],
+    movieDetails: {}
   };
   
   export default function MovieSearchReducer (state = defaultState, action) {
@@ -30,6 +31,14 @@ const defaultState = {
             error: payload.message
         }
         //message js default error 
+
+        case 'GET_MOVIE_BY_ID_FULFILLED':
+        console.log('GET_MOVIE_BY_ID_FULFILLED payload',payload)
+        return {
+            ...state,
+            movieDetails: payload
+        }
+
 
     default: {
         return state;

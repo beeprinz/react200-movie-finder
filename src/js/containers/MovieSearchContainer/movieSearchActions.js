@@ -15,5 +15,20 @@ export function getMovie(movieName) {
 
   };
 //   console.log('movie data',r.data)
-  
+}
+
+export function getMovieById(movieId){
+    console.log('actions movie id', {movieId})
+    return {
+        type: "GET_MOVIE_BY_ID",
+        payload:     
+        axios
+        .get(`/api/movie/${movieId}`)
+        .then(r => {
+            return r.data
+        console.log('actions id payload',r.data)})
+        .catch(err => {
+          console.log(err);
+        })    
+      };
 }
